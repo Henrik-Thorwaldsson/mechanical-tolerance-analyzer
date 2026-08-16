@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <base target="_top">
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      color: #202124;
+      line-height: 1.45;
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .intro {
+      color: #5f6368;
+      margin-bottom: 20px;
+    }
+
+    .fit-info {
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 14px;
+      background: #f8f9fa;
+    }
+
+    .fit-info-title {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .applications-title {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+
+    .application-list {
+      margin-top: 4px;
+      margin-bottom: 0;
+      padding-left: 22px;
+    }
+
+    .application-list li {
+      margin-bottom: 3px;
+    }
+
+    .form-section {
+      border-top: 1px solid #dadce0;
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 14px;
+      margin-bottom: 5px;
+    }
+
+    select,
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 9px;
+      font-size: 14px;
+      border: 1px solid #dadce0;
+      border-radius: 5px;
+      background: white;
+    }
+
+    .recommendation {
+      margin-top: 22px;
+      padding: 18px;
+      border: 1px solid #aecbfa;
+      border-radius: 8px;
+      background: #f4f8ff;
+    }
+
+    .recommendation-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: #1967d2;
+      margin-bottom: 5px;
+    }
+
+    .fit-result {
+      font-size: 30px;
+      font-weight: bold;
+      color: #1967d2;
+      margin-bottom: 6px;
+    }
+
+    .fit-description {
+      color: #3c4043;
+    }
+
+    .fit-detail {
+      margin-top: 10px;
+      font-size: 13px;
+      color: #5f6368;
+    }
+
+    .quick-tip {
+      margin-top: 18px;
+      padding: 14px;
+      border-left: 4px solid #34a853;
+      background: #eef7f0;
+      border-radius: 4px;
+    }
+
+    .quick-tip-title {
+      font-weight: bold;
+      color: #137333;
+      margin-bottom: 8px;
+    }
+
+    .diameter-section {
+      margin-top: 22px;
+      padding: 16px;
+      border: 1px solid #dadce0;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .calculate-button {
+      width: 100%;
+      margin-top: 12px;
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .calculate-button:hover {
+      background: #1765cc;
+    }
+
+    .fit-calculation {
+      display: none;
+      margin-top: 16px;
+    }
+
+    .dimension-box {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+
+    .dimension-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .dimension-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 12px;
+      font-size: 13px;
+    }
+
+    .fit-range {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid #aecbfa;
+      border-radius: 6px;
+      background: #f4f8ff;
+    }
+
+    .range-value {
+      font-weight: bold;
+    }
+
+    .error {
+      display: none;
+      color: #b31412;
+      background: #fce8e6;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    .it-section {
+      margin-top: 22px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+
+    .it-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .example {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    .meaning-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: white;
+      border: 1px solid #dadce0;
+      border-radius: 6px;
+    }
+
+    .cost-title {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 22px;
+      margin-bottom: 8px;
+    }
+
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background: white;
+    }
+
+    .cost-table th,
+    .cost-table td {
+      border: 1px solid #dadce0;
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .cost-table th {
+      background: #eef3f8;
+    }
+
+    .cost-multiplier {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .direction-bar {
+      margin-top: 12px;
+      padding: 8px;
+      background: #eef3f8;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .note {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #5f6368;
+    }
+
+    .important-note {
+      margin-top: 14px;
+      padding: 12px;
+      border-left: 4px solid #fbbc04;
+      background: #fff8e1;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .close-button {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 9px 18px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<h2>
+  ISO 286 Fit Guide
+</h2>
+
+
+<div class="intro">
+
+  Start with the required function of the hole
+  and shaft.
+
+  <br><br>
+
+  The suggested fits below are practical starting
+  points for engineering selection.
+
+</div>
+
+
+
+<!-- ==========================================
+     CLEARANCE
+     ========================================== -->
+
+<div class="fit-info">
+
+  <div class="fit-info-title">
+    Clearance fit
+  </div>
+
+  The shaft is always smaller than the hole.
+  Clearance is always present between the mating parts.
+
+  <div class="applications-title">
+    Typical applications
+  </div>
+
+  <ul class="application-list">
+
+    <li>Sliding guides and locating pilots</li>
+
+    <li>Journal bearings and rotating shafts</li>
+
+    <li>Pulleys and freely moving components</li>
+
+    <li>Parts requiring easy assembly and removal</li>
+
+    <li>
+      Machinery where dirt, temperature variation
+      or slight misalignment may occur
+    </li>
+
+  </ul>
+
+</div>
+
+
+
+<!-- ==========================================
+     TRANSITION
+     ========================================== -->
+
+<div class="fit-info">
+
+  <div class="fit-info-title">
+    Transition fit
+  </div>
+
+  The tolerance zones overlap.
+
+  The actual manufactured parts may therefore have
+  either a small clearance or a small interference.
+
+  <div class="applications-title">
+    Typical applications
+  </div>
+
+  <ul class="application-list">
+
+    <li>Dowel pins and locating features</li>
+
+    <li>Accurately positioned removable parts</li>
+
+    <li>Precision hubs and gears</li>
+
+    <li>Couplings requiring accurate alignment</li>
+
+    <li>
+      Assemblies that may require light tapping
+      or pressing
+    </li>
+
+  </ul>
+
+</div>
+
+
+
+<!-- ==========================================
+     INTERFERENCE
+     ========================================== -->
+
+<div class="fit-info">
+
+  <div class="fit-info-title">
+    Interference fit
+  </div>
+
+  The shaft is larger than the hole.
+
+  Assembly normally requires pressing,
+  heating or cooling.
+
+  <div class="applications-title">
+    Typical applications
+  </div>
+
+  <ul class="application-list">
+
+    <li>Bearing inner races on shafts</li>
+
+    <li>Bearing seats</li>
+
+    <li>Press-fit locating pins</li>
+
+    <li>Gear hubs and couplings</li>
+
+    <li>Permanent or semi-permanent joints</li>
+
+  </ul>
+
+</div>
+
+
+
+<!-- ==========================================
+     FIT SELECTOR
+     ========================================== -->
+
+<div class="form-section">
+
+  <div class="section-title">
+    Select required fit
+  </div>
+
+
+  <label for="fitType">
+    Fit type
+  </label>
+
+
+  <select
+    id="fitType"
+    onchange="updateFunctions()">
+
+    <option value="clearance">
+      Clearance fit
+    </option>
+
+    <option value="transition">
+      Transition fit
+    </option>
+
+    <option value="interference">
+      Interference fit
+    </option>
+
+  </select>
+
+
+  <label for="functionType">
+    Required function
+  </label>
+
+
+  <select
+    id="functionType"
+    onchange="updateRecommendation()">
+  </select>
+
+</div>
+
+
+
+<!-- ==========================================
+     RECOMMENDATION
+     ========================================== -->
+
+<div class="recommendation">
+
+  <div class="recommendation-title">
+    RECOMMENDED STARTING FIT
+  </div>
+
+
+  <div
+    id="fitResult"
+    class="fit-result">
+  </div>
+
+
+  <div
+    id="fitDescription"
+    class="fit-description">
+  </div>
+
+
+  <div
+    id="fitDetail"
+    class="fit-detail">
+  </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     QUICK START
+     ========================================== -->
+
+<div class="quick-tip">
+
+  <div class="quick-tip-title">
+    Useful fits to remember
+  </div>
+
+  <b>H7/g6 — Sliding fit</b>
+
+  <br>
+
+  Accurate guided movement with small clearance.
+
+  <br><br>
+
+
+  <b>H7/k6 — Locational transition fit</b>
+
+  <br>
+
+  Accurate location with a snug assembly.
+
+  <br><br>
+
+
+  <b>H7/p6 — Locational interference fit</b>
+
+  <br>
+
+  Light press fit where relative movement
+  is not intended.
+
+  <br><br>
+
+  These three cover many common general
+  mechanical design situations and are useful
+  starting points before selecting a more
+  specialised fit.
+
+</div>
+
+
+
+<!-- ==========================================
+     NOMINAL DIAMETER
+     ========================================== -->
+
+<div class="diameter-section">
+
+  <div class="section-title">
+    Calculate actual fit
+  </div>
+
+  Enter the nominal mating diameter to calculate
+  the actual ISO 286 limits for the recommended fit.
+
+
+  <label for="nominalDiameter">
+    Nominal diameter (mm)
+  </label>
+
+
+  <input
+    id="nominalDiameter"
+    type="number"
+    step="any"
+    min="0"
+    placeholder="Example: 25">
+
+
+  <button
+    class="calculate-button"
+    onclick="calculateFit()">
+
+    Calculate fit limits
+
+  </button>
+
+
+  <div
+    id="calculationError"
+    class="error">
+  </div>
+
+
+  <div
+    id="fitCalculation"
+    class="fit-calculation">
+
+
+    <!-- HOLE -->
+
+    <div class="dimension-box">
+
+      <div
+        id="holeTitle"
+        class="dimension-title">
+      </div>
+
+
+      <div class="dimension-grid">
+
+        <span>Upper deviation</span>
+        <span id="holeUpper"></span>
+
+        <span>Lower deviation</span>
+        <span id="holeLower"></span>
+
+        <span>Maximum size</span>
+        <span id="holeMax"></span>
+
+        <span>Minimum size</span>
+        <span id="holeMin"></span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- SHAFT -->
+
+    <div class="dimension-box">
+
+      <div
+        id="shaftTitle"
+        class="dimension-title">
+      </div>
+
+
+      <div class="dimension-grid">
+
+        <span>Upper deviation</span>
+        <span id="shaftUpper"></span>
+
+        <span>Lower deviation</span>
+        <span id="shaftLower"></span>
+
+        <span>Maximum size</span>
+        <span id="shaftMax"></span>
+
+        <span>Minimum size</span>
+        <span id="shaftMin"></span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- RESULTING FIT -->
+
+    <div class="fit-range">
+
+      <div class="dimension-title">
+        Resulting fit range
+      </div>
+
+
+      <div class="dimension-grid">
+
+        <span>Minimum clearance</span>
+
+        <span
+          id="minimumClearance"
+          class="range-value">
+        </span>
+
+
+        <span>Maximum clearance</span>
+
+        <span
+          id="maximumClearance"
+          class="range-value">
+        </span>
+
+
+        <span>Calculated fit behaviour</span>
+
+        <span
+          id="calculatedFitType"
+          class="range-value">
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     IT GRADE
+     ========================================== -->
+
+<div class="it-section">
+
+  <div class="it-title">
+    Understanding ISO 286 tolerance classes
+  </div>
+
+
+  Example:
+
+  <div class="example">
+    H7 / g6
+  </div>
+
+
+  <div class="meaning-box">
+
+    <b>Uppercase letter = hole</b>
+
+    <br>
+
+    H7
+
+    <br><br>
+
+
+    <b>Lowercase letter = shaft</b>
+
+    <br>
+
+    g6
+
+    <br><br>
+
+
+    The <b>letter</b> defines the position of the
+    tolerance zone relative to nominal size.
+
+    <br><br>
+
+    The <b>number</b> defines the IT grade and
+    therefore the width of the tolerance zone.
+
+  </div>
+
+
+  <br>
+
+
+  Lower IT number
+  → tighter tolerance
+  → generally higher manufacturing
+  and inspection effort.
+
+
+  <div class="important-note">
+
+    <b>Tighter is not automatically better.</b>
+
+    <br><br>
+
+    Use the loosest tolerance that reliably
+    fulfils the functional requirement.
+
+  </div>
+
+
+
+  <!-- ========================================
+       COST
+       ======================================== -->
+
+  <div class="cost-title">
+    Manufacturing cost — rough rule of thumb
+  </div>
+
+
+  <table class="cost-table">
+
+    <tr>
+
+      <th>IT grade</th>
+
+      <th>Relative cost</th>
+
+      <th>Typical manufacturing level</th>
+
+    </tr>
+
+
+    <tr>
+
+      <td><b>IT11</b></td>
+
+      <td class="cost-multiplier">
+        ≈ 1×
+      </td>
+
+      <td>
+        Rough machining, drilling and
+        non-critical dimensions
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td><b>IT9</b></td>
+
+      <td class="cost-multiplier">
+        ≈ 2×
+      </td>
+
+      <td>
+        Standard controlled CNC machining
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td><b>IT7</b></td>
+
+      <td class="cost-multiplier">
+        ≈ 4×
+      </td>
+
+      <td>
+        Precision turning, boring or reaming
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td><b>IT6</b></td>
+
+      <td class="cost-multiplier">
+        ≈ 8×
+      </td>
+
+      <td>
+        High precision machining,
+        grinding or closely controlled processes
+      </td>
+
+    </tr>
+
+
+    <tr>
+
+      <td><b>IT5</b></td>
+
+      <td class="cost-multiplier">
+        ≈ 16×
+      </td>
+
+      <td>
+        Very high precision, grinding,
+        honing or specialist processes
+      </td>
+
+    </tr>
+
+  </table>
+
+
+  <div class="direction-bar">
+
+    LOOSER &nbsp;
+    IT11 → IT9 → IT7 → IT6 → IT5
+    &nbsp; TIGHTER
+
+  </div>
+
+
+  <div class="note">
+
+    <b>Cost note:</b>
+
+    These multipliers are approximate relative
+    manufacturing-cost rules of thumb only.
+
+    They are not quotations.
+
+    <br><br>
+
+    Actual cost depends on size, material,
+    geometry, surface finish, process,
+    machine capability, inspection,
+    production volume and supplier capability.
+
+  </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     CLOSE
+     ========================================== -->
+
+<div class="footer">
+
+  <button
+    class="close-button"
+    onclick="google.script.host.close()">
+
+    Close
+
+  </button>
+
+</div>
+
+
+
+<script>
+
+
+// ==========================================
+// FIT DATABASE
+// ==========================================
+
+const fits = {
+
+
+  clearance: [
+
+    {
+      name:
+        "Locational clearance",
+
+      fit:
+        "H7/h6",
+
+      description:
+        "Accurate location with minimum clearance.",
+
+      detail:
+        "For accurately located parts that must still assemble and disassemble without an intentional press fit."
+    },
+
+
+    {
+      name:
+        "Sliding",
+
+      fit:
+        "H7/g6",
+
+      description:
+        "Accurate sliding fit with small clearance.",
+
+      detail:
+        "For controlled sliding movement, precision guidance, sliding guides and locating pilots."
+    },
+
+
+    {
+      name:
+        "Free running",
+
+      fit:
+        "H7/f7",
+
+      description:
+        "Free running fit with controlled clearance.",
+
+      detail:
+        "For journal bearings, pulleys and rotating parts requiring reliable running clearance."
+    },
+
+
+    {
+      name:
+        "Close running",
+
+      fit:
+        "H8/f7",
+
+      description:
+        "Close running fit for controlled movement.",
+
+      detail:
+        "For rotating or sliding components requiring controlled running clearance without very tight location."
+    },
+
+
+    {
+      name:
+        "Loose running",
+
+      fit:
+        "H8/d9",
+
+      description:
+        "Generous clearance for unrestricted movement.",
+
+      detail:
+        "Useful where contamination, thermal variation, higher speeds or slight misalignment may occur."
+    }
+
+  ],
+
+
+
+  transition: [
+
+    {
+      name:
+        "Locational transition",
+
+      fit:
+        "H7/k6",
+
+      description:
+        "Accurate location with small clearance or interference.",
+
+      detail:
+        "For precision hubs, gears, dowels and assemblies requiring accurate positioning with possible dismantling."
+    },
+
+
+    {
+      name:
+        "Locational transition (tight)",
+
+      fit:
+        "H7/n6",
+
+      description:
+        "Very firm and accurate location.",
+
+      detail:
+        "A tighter transition fit that may produce light interference and may require assembly force."
+    }
+
+  ],
+
+
+
+  interference: [
+
+    {
+      name:
+        "Locational interference",
+
+      fit:
+        "H7/p6",
+
+      description:
+        "Light interference for accurate fixed location.",
+
+      detail:
+        "For press-fitted hubs, bushes, bearing seats and components where relative movement is not intended."
+    },
+
+
+    {
+      name:
+        "Medium drive",
+
+      fit:
+        "H7/s6",
+
+      description:
+        "Firm interference fit.",
+
+      detail:
+        "For components that must transmit load without relative movement. Pressing or thermal assembly is normally required."
+    },
+
+
+    {
+      name:
+        "Force fit",
+
+      fit:
+        "H7/u6",
+
+      description:
+        "Heavy interference for a highly secure joint.",
+
+      detail:
+        "For highly loaded or effectively permanent assemblies requiring heavy pressing or thermal assembly."
+    }
+
+  ]
+
+};
+
+
+
+// ==========================================
+// UPDATE FUNCTION LIST
+// ==========================================
+
+function updateFunctions() {
+
+  const fitType =
+    document
+      .getElementById(
+        "fitType"
+      )
+      .value;
+
+
+  const functionSelect =
+    document
+      .getElementById(
+        "functionType"
+      );
+
+
+  functionSelect.innerHTML =
+    "";
+
+
+  fits[fitType].forEach(
+    function(
+      item,
+      index
+    ) {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        index;
+
+
+      option.textContent =
+        item.name +
+        " — " +
+        item.fit;
+
+
+      functionSelect
+        .appendChild(
+          option
+        );
+
+    }
+  );
+
+
+  updateRecommendation();
+
+}
+
+
+
+// ==========================================
+// UPDATE RECOMMENDATION
+// ==========================================
+
+function updateRecommendation() {
+
+  const item =
+    getSelectedFit();
+
+
+  if (!item) {
+    return;
+  }
+
+
+  document
+    .getElementById(
+      "fitResult"
+    )
+    .textContent =
+      item.fit;
+
+
+  document
+    .getElementById(
+      "fitDescription"
+    )
+    .textContent =
+      item.description;
+
+
+  document
+    .getElementById(
+      "fitDetail"
+    )
+    .textContent =
+      item.detail;
+
+
+  // Gammal diameterberäkning gäller
+  // inte längre när fit ändras.
+  document
+    .getElementById(
+      "fitCalculation"
+    )
+    .style.display =
+      "none";
+
+}
+
+
+
+// ==========================================
+// GET SELECTED FIT
+// ==========================================
+
+function getSelectedFit() {
+
+  const fitType =
+    document
+      .getElementById(
+        "fitType"
+      )
+      .value;
+
+
+  const index =
+    Number(
+      document
+        .getElementById(
+          "functionType"
+        )
+        .value
+    );
+
+
+  return fits[fitType][index];
+
+}
+
+
+
+// ==========================================
+// CALCULATE ACTUAL ISO 286 FIT
+// ==========================================
+
+function calculateFit() {
+
+  const item =
+    getSelectedFit();
+
+
+  const nominal =
+    Number(
+      document
+        .getElementById(
+          "nominalDiameter"
+        )
+        .value
+    );
+
+
+  const errorBox =
+    document
+      .getElementById(
+        "calculationError"
+      );
+
+
+  errorBox.style.display =
+    "none";
+
+
+  if (
+    !item ||
+    !Number.isFinite(nominal) ||
+    nominal <= 0
+  ) {
+
+    errorBox.textContent =
+      "Enter a valid nominal diameter greater than 0 mm.";
+
+    errorBox.style.display =
+      "block";
+
+    return;
+  }
+
+
+  google.script.run
+
+    .withSuccessHandler(
+      displayFitCalculation
+    )
+
+    .withFailureHandler(
+      function(error) {
+
+        errorBox.textContent =
+          error.message ||
+          "Could not calculate ISO 286 fit.";
+
+        errorBox.style.display =
+          "block";
+
+      }
+    )
+
+    .calculateISO286FitPreview(
+      nominal,
+      item.fit
+    );
+
+}
+
+
+
+// ==========================================
+// DISPLAY CALCULATION
+// ==========================================
+
+function displayFitCalculation(
+  result
+) {
+
+  const box =
+    document
+      .getElementById(
+        "fitCalculation"
+      );
+
+
+  document
+    .getElementById(
+      "holeTitle"
+    )
+    .textContent =
+      "Hole " +
+      result.holeClass;
+
+
+  document
+    .getElementById(
+      "shaftTitle"
+    )
+    .textContent =
+      "Shaft " +
+      result.shaftClass;
+
+
+  document
+    .getElementById(
+      "holeUpper"
+    )
+    .textContent =
+      formatSigned(
+        result.holeUpper
+      );
+
+
+  document
+    .getElementById(
+      "holeLower"
+    )
+    .textContent =
+      formatSigned(
+        result.holeLower
+      );
+
+
+  document
+    .getElementById(
+      "holeMax"
+    )
+    .textContent =
+      formatNumber(
+        result.holeMax
+      );
+
+
+  document
+    .getElementById(
+      "holeMin"
+    )
+    .textContent =
+      formatNumber(
+        result.holeMin
+      );
+
+
+  document
+    .getElementById(
+      "shaftUpper"
+    )
+    .textContent =
+      formatSigned(
+        result.shaftUpper
+      );
+
+
+  document
+    .getElementById(
+      "shaftLower"
+    )
+    .textContent =
+      formatSigned(
+        result.shaftLower
+      );
+
+
+  document
+    .getElementById(
+      "shaftMax"
+    )
+    .textContent =
+      formatNumber(
+        result.shaftMax
+      );
+
+
+  document
+    .getElementById(
+      "shaftMin"
+    )
+    .textContent =
+      formatNumber(
+        result.shaftMin
+      );
+
+
+  document
+    .getElementById(
+      "minimumClearance"
+    )
+    .textContent =
+      formatSigned(
+        result.minimumClearance
+      );
+
+
+  document
+    .getElementById(
+      "maximumClearance"
+    )
+    .textContent =
+      formatSigned(
+        result.maximumClearance
+      );
+
+
+  document
+    .getElementById(
+      "calculatedFitType"
+    )
+    .textContent =
+      result.fitBehaviour;
+
+
+  box.style.display =
+    "block";
+
+}
+
+
+
+// ==========================================
+// NUMBER FORMATTING
+// ==========================================
+
+function formatNumber(
+  value
+) {
+
+  return Number(value)
+    .toFixed(3) +
+    " mm";
+
+}
+
+
+function formatSigned(
+  value
+) {
+
+  const number =
+    Number(value);
+
+
+  const prefix =
+    number > 0
+      ? "+"
+      : "";
+
+
+  return prefix +
+    number.toFixed(3) +
+    " mm";
+
+}
+
+
+
+// ==========================================
+// INITIALIZE
+// ==========================================
+
+updateFunctions();
+
+
+</script>
+
+
+</body>
+
+</html>
